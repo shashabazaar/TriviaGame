@@ -10,37 +10,75 @@
 <title></title>
 </head>
 <body>
-    <header>
-      <img src="assets/images/IMG_0025.jpg" alt="Plate of food"  width="100%">
-    </header>
+    
     <div class="container">
-        <header>
+       <div class ='jumbotron'>
+           <div class='container'>
             <h1>Cuisine Trivia</h1>
             <h2>Instructions:</h2>
-            <p>You have 30 seconds to select the correct cuisine based on the given description</p>
-        </header>
-        <div class="holder"></div>
+            <small>You have 30 seconds to select the correct cuisine based on the given description</small>
+           </div>
       </div>
       
     </div>
 
 <!-- You'll create a trivia game that shows only one question until the player answers it or their time runs out.-->
+<div class="row">
+    <div class="col-lg-12">
+<!-- If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input. -->
+<div class="card card-default">
+    <div class="card-header">
+        <h3 class="card-title"><strong>Cuisines to Guess</strong></h3>
+        </div>
+    <div class="card-body">    
 
-<!-- If the player selects the correct answer, show a screen congratulating them for choosing the right option. After a few seconds, display the next question -- do this without user input.
 
-The scenario is similar for wrong answers and time-outs. -->
 
+<!--The scenario is similar for wrong answers and time-outs. -->
+<h3 id="word-blanks">_ _ _ _ _ _ _ _ _ _</h3>
+</div>
+
+</div>
 <!-- If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question. -->
+<strong>Wrong Guesses: </strong> <span
+id="wrong-guesses">9</span>
+</div>
+</div>
+
 
 <!-- If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question. -->
+<strong>Guesses Left: </strong> <span
+id="guesses-left"></span>
 
+</div>
+</div>
+<div class="card card-default">
+    <div class="card-body">
 <!-- On the final screen, show the number of correct answers, incorrect answers, and an option to restart the game (without reloading the page). -->
+<strong>Correct Answers: </strong> <span 
+id="correct-counter">0</span>
+
+<strong>Incorrect Answers: </strong> <span 
+id="incorrect-counter">0</span>
+
+<strong>Restart Game: </strong> <span 
+id="restart-game">0</span>
+
+<strong>Wins: </strong> <span
+id="loss-counter">0</span>
+
+<strong>Losses: </strong> <span
+id="loss-counter">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
+<script src="logic.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.13.0/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/js/bootstrap.min.js"></script>
-<script src="assets/javascript/script.js"></script>
+ <script src="assets/javascript/script.js"></script>
+
 </body>
 </html>
