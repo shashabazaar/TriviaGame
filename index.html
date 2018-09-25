@@ -2,21 +2,21 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css">
+
+
+<link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
 <link rel="stylesheet" href="assets/css/style.css">
 <title></title>
 </head>
 <body>
     
     <div class="container">
-       <div class ='jumbotron'>
+       <div class='jumbotron'>
            <div class='container'>
             <h1>Cuisine Trivia</h1>
             <h2>Instructions:</h2>
-            <small>You have 30 seconds to select the correct cuisine based on the given description</small>
+            <small>You have 15 seconds to select the correct cuisine based on the given description</small>
            </div>
       </div>
       
@@ -40,6 +40,8 @@
 
 </div>
 <!-- If the player runs out of time, tell the player that time's up and display the correct answer. Wait a few seconds, then show the next question. -->
+<div class="card card-default">
+        <div class="card-body">
 <strong>Wrong Guesses: </strong> <span
 id="wrong-guesses">9</span>
 </div>
@@ -47,8 +49,10 @@ id="wrong-guesses">9</span>
 
 
 <!-- If the player chooses the wrong answer, tell the player they selected the wrong option and then display the correct answer. Wait a few seconds, then show the next question. -->
+<div class="card card-default">
+        <div class="card-body">
 <strong>Guesses Left: </strong> <span
-id="guesses-left"></span>
+id="guesses-left">9</span>
 
 </div>
 </div>
@@ -65,10 +69,13 @@ id="incorrect-counter">0</span>
 id="restart-game">0</span>
 
 <strong>Wins: </strong> <span
-id="loss-counter">0</span>
+id="win-counter">0</span>
 
 <strong>Losses: </strong> <span
 id="loss-counter">0</span>
+
+
+
 </div>
 </div>
 </div>
@@ -76,9 +83,8 @@ id="loss-counter">0</span>
 </div>
 
 
-<script src="logic.js"></script>
 
- <script src="assets/javascript/script.js"></script>
-
+<script type="text/javascript" src="assets/javascript/logic.js"></script>
 </body>
 </html>
+
