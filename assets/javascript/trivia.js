@@ -73,20 +73,22 @@ var trivia = {
         //ask first question
         trivia.nextQuestion();
 
-        trivia.timerRunning();
     },
     //method to loop through and display questions and options
     nextQuestion: function () {
+        clearInterval(trivia.timerId);
 
         //set timer to 30 seconds each question
         trivia.timer = 10;
+        trivia.timerId = setInterval(trivia.timerRunning, 1000);
+
         $('#timer').removeClass('last-seconds');
         $('#timer').text(trivia.timer);
 
         //prevent timer speeding up
-        if (!trivia.timerOn) {
-            trivia.timerId = setInterval(trivia.timerRunning, 1000);
-        }
+        // if (!trivia.timerOn) {
+        //     trivia.timerId = setInterval(trivia.timerRunning, 1000);
+        // }
 
         //get and index current questions
         var questionContent = Object.values(trivia.questions)[trivia.currentSet];
@@ -105,7 +107,7 @@ var trivia = {
     //method to decrement counter and count unanswered if timer runs out
 
     timerRunning: function (){
-        if (trivia.timer > -1 && trivia.currentSet < Object.keys(trivia.quesions).length){
+        if (trivia.timer > -1 && trivia.currentSet < Object.keys(trivia.questions).length){
             $('#timer').text(trivia.timer);
             trivia.timer--;
             if (trivia.timer === 4) {
@@ -113,7 +115,7 @@ var trivia = {
             }
         }
         //time has run out and increment unanswered, ran result
-        else if (trivia.timer === -1) {
+        else if (trivia.timer <= -1) {
             trivia.unanswered++;
             trivia.result = false;
             clearInterval(trivia.timerId);
@@ -140,6 +142,7 @@ var trivia = {
     },
 
     guessChecker: function () {
+        clearInterval(trivia.timerId);
 
         //timer ID for gameResult setTimeout
         var resultId;
@@ -153,24 +156,23 @@ var trivia = {
             $(this).addClass('btn-success').removeClass('btn-info');
 
             trivia.correct++;
-            clearInterval(trivia.timerId);
-            resultId = setTimeout(trivia.guessResult, 1000);
+            resultId = setTimeout(trivia.guessResult, 2000);
             $('#results').html('<h3>Correct Answer!</h3>');
         } else{
             //turn button clicked red for incorrect
             $(this).addClass('btn-danger').removeClass('btn-info');
-
             trivia.incorrect++;
-            clearInterval(trivia.timerId);
-            resultId = setTimeout(trivia.guessResult, 1000);
+            resultId = setTimeout(trivia.guessResult, 2000);
             $('#results').html('<h3>Hang in there! ' + currentAnswer + '</h3>');
         }
     },
     //method to remove previous question results and options
     guessResult: function () {
         //increment to next question set
-        trivia.currrentSet++;
+        console.log(trivia.currentSet);
 
+        trivia.currentSet += 1;
+        console.log(trivia.currentSet);
         //remove the option and results
         $('.option').remove();
         $('#results h3').remove();
